@@ -1,0 +1,27 @@
+<div class="container-fluid pt-5">
+    <h1 class="text-center pb-5">Welcome to Pokedex</h1>
+    <div class="description pb-3 d-flex flex-column align-items-center">
+        <p class="text-center w-50">Pokedex is simple implementation of the <a href="https://pokeapi.co">pokemaapi</a>. On this page you will find the first 100 characters as returned by the API. You can always load more characters by clicking the button at the bottom of this page.</p>
+        <p class="text-center">To see more info about a character just click on the character's card and you will be taken to the info page</p>
+    </div>
+    <div class="custom-container" *ngIf="characters">
+        <hr>
+        <div class="row pt-5">
+            <div *ngFor="let character of characters" class="col-sm-12 col-md-6 col-lg-4 col-xl-3" id={{character.id}}>
+                <div class="card mb-5">
+                    <h5 class="card-header">{{character.name.toUpperCase()}}</h5>
+                    <img src="{{character.images.frontShinyImg || character.images.frontDefaultImg}}" class="card-img-top" alt="{{character.name}}">
+                    <div class="card-body">
+                      <a routerLink="../info"
+                      [queryParams]="{ id: character.id }" class="btn btn-lg btn-contained btn-custom w-100">More Details</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <button class="btn btn-lg btn-custom m-5 w-25">Load more</button>
+            </div>
+        </div>
+    </div>
+</div>

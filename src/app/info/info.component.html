@@ -1,0 +1,13 @@
+<div class="info-container">
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="btn">Home</a>
+    <div class="container d-flex  align-items-center flex-column">
+        <div class="card">
+                <h3 class="card-header text-center">{{character.name.toUpperCase()}}</h3>
+            <img src="{{character.images.frontShinyImg || character.images.frontDefaultImg}}" class="card-img-bottom" alt="{{character.name}}">
+            <h4 class="card-text px-5 pb-4" *ngIf="character.types">Types</h4>
+              <ul  class="px-5" *ngFor="let type of character.types">
+                  <li id={{type}}>{{type}}</li>
+              </ul>
+          </div>
+    </div>
+</div>

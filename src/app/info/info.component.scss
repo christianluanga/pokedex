@@ -1,0 +1,14 @@
+div.info-container{
+    a {
+        font-size: 24px;
+        padding-left: 2rem;
+    }
+    & div.card{
+        width: 35rem;
+        margin-top: 10rem;
+    
+        & li{
+            font-size: 24px;
+        }
+    }
+}
